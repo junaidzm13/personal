@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
   return (
     <StyledHeader>
       <BitmojiImageWrapper>
-        <img src="bitmoji.jpeg" />
+        <img src="bitmoji.jpeg" alt="Junaid Malik's Bitmoji" />
       </BitmojiImageWrapper>
     </StyledHeader>
   );

@@ -4,6 +4,7 @@ import { colors } from '../theme/colors';
 import { ContactDetails } from './ConactDetails';
 import { NameAndSummary } from './NameAndSummary';
 import { ProfilePicture } from './ProfilePicture';
+import { MAX_WIDTH } from '../constants/layout';
 
 export const Introduction: React.FC = () => {
   return (
@@ -16,8 +17,6 @@ export const Introduction: React.FC = () => {
     </IntroductionWrapper>
   );
 };
-
-const MAX_WIDTH = '835px';
 
 const IntroductionWrapper = styled.div`
   display: flex;
