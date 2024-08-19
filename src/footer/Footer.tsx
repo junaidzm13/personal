@@ -4,7 +4,7 @@ import { colors } from '../theme/colors';
 
 export const Footer: React.FC = () => (
   <Wrapper>
-    <img src="/technologies/react.png" alt="React Logo" />
+    <img src="technologies/react.png" alt="React Logo" />
     <span>Built with React</span>
     <span>— © 2024, Junaid Malik</span>
   </Wrapper>
