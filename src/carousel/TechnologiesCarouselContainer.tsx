@@ -23,12 +23,13 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 0.25em 1em;
+    padding-bottom: 1em;
 
     > span {
       font-size: 1.125em;
       color: ${colors.LEAD};
       text-align: center;
+      padding: 0 0.25em 0;
     }
   }
 `;
@@ -44,6 +45,7 @@ const logos: Array<CarouselImage> = [
   { src: 'technologies/spring.svg', alt: 'Spring Logo' },
 
   { src: 'technologies/github.svg', alt: 'GitHub Logo' },
+  { src: 'technologies/gitlab.svg', alt: 'GitLab Logo' },
 
   { src: 'technologies/mongodb.svg', alt: 'MongoDB Logo' },
   { src: 'technologies/kafka.svg', alt: 'Apache Kafka Logo' },
