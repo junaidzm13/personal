@@ -23,13 +23,14 @@ const IntroductionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-  flex-wrap: wrap-reverse;
   color: ${colors.GRAY};
   gap: 3em;
   padding: 3em 1em 3em;
 
   @media (max-width: ${MAX_WIDTH}) {
+    flex-direction: column-reverse;
     padding: 1em;
+    gap: 1em;
   }
 `;
 

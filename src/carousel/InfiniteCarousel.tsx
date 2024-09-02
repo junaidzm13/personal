@@ -37,7 +37,7 @@ const Wrapper = styled.div<Pick<Props, 'imgHeightEm'>>`
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 1em 0;
+  padding: 0;
   background-color: white;
   white-space: nowrap;
   position: relative;
