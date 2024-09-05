@@ -7,7 +7,7 @@ export const TechnologiesCarouselContainer: React.FC = () => (
   <Wrapper>
     <div className="infinite-carousel-heading">
       <span>
-        Few of the technologies I have extensively used in production settings
+        Few of the technologies used extensively in production settings
       </span>
     </div>
     <InfiniteCarousel imgs={logos} />
