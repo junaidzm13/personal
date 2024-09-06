@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 
-export type CarouselImage = { src: string; alt: string };
+export type CarouselImage = {
+  src: string;
+  alt: string;
+  item?: { node: React.ReactNode };
+};
 
 interface Props {
   imgs: Array<CarouselImage>;
@@ -22,8 +26,19 @@ const Logos: React.FC<Props> = ({ imgs }) => {
   return (
     <div className="logos-slide">
       {imgs.map(i => (
-        <img src={i.src} alt={i.alt} />
+        <LogoImg carouselImage={i} key={i.src} />
       ))}
+    </div>
+  );
+};
+
+const LogoImg: React.FC<{ carouselImage: CarouselImage }> = ({
+  carouselImage,
+}) => {
+  return (
+    <div className="logo">
+      {carouselImage.item?.node}
+      <img src={carouselImage.src} alt={carouselImage.alt} />
     </div>
   );
 };
@@ -69,9 +84,23 @@ const Wrapper = styled.div<Pick<Props, 'imgHeightEm'>>`
   > .logos-slide {
     display: inline-block;
     animation: 20s ${animation} infinite linear;
-    > img {
-      height: ${props => props.imgHeightEm ?? 4}em;
+
+    > .logo {
+      display: inline-block;
+      position: relative;
       margin: 0 1.25em;
+      padding-bottom: 0.45em;
+
+      > img {
+        height: ${props => props.imgHeightEm ?? 4}em;
+      }
+
+      > .bottom-right {
+        margin: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
     }
   }
 `;
