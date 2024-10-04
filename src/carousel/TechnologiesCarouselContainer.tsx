@@ -95,11 +95,26 @@ const logos: Array<{ src: string; alt: string; filledStars: number }> = [
     alt: 'Spring Logo',
     filledStars: 2,
   },
+  {
+    src: 'technologies/nginx.svg',
+    alt: 'NginX Logo',
+    filledStars: 2,
+  },
+  {
+    src: 'technologies/django.svg',
+    alt: 'Django Logo',
+    filledStars: 1,
+  },
 
   // Databases / DataEngineering
   {
     src: 'technologies/mongodb.svg',
     alt: 'MongoDB Logo',
+    filledStars: 2,
+  },
+  {
+    src: 'technologies/postgresql.svg',
+    alt: 'Postgres Logo',
     filledStars: 2,
   },
   {
