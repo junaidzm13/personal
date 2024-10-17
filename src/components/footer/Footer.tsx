@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../theme/colors';
+import { colors } from '../../theme/colors';
+import { fromPublic } from '../../utils/fromPublic';
 
 export const Footer: React.FC = () => (
   <Wrapper>
-    <img src="technologies/react.png" alt="React Logo" />
+    <img src={fromPublic('technologies/react.png')} alt="React Logo" />
     <span>Built with React</span>
     <span>— © 2024, Junaid Malik</span>
   </Wrapper>

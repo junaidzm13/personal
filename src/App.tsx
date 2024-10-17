@@ -1,19 +1,34 @@
 import React from 'react';
-import { Header } from './header/Header';
+import { Header } from './components/header/Header';
 import { AppContainer } from './AppContainer';
 import { Introduction } from './introduction/Introduction';
-import { Footer } from './footer/Footer';
+import { Footer } from './components/footer/Footer';
 import { TechnologiesCarouselContainer } from './carousel/TechnologiesCarouselContainer';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { BlogsPage } from './components/pages/blog/BlogsPage';
+import { BlogPost } from './components/pages/blog/BlogPost';
 
-function App() {
+export default function App() {
   return (
     <AppContainer>
       <Header />
-      <Introduction />
-      <TechnologiesCarouselContainer />
+      <BrowserRouter basename="/website">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/:id" element={<BlogPost />} />
+        </Routes>
+      </BrowserRouter>
       <Footer />
     </AppContainer>
   );
 }
 
-export default App;
+const HomePage: React.FC = () => {
+  return (
+    <React.Fragment>
+      <Introduction />
+      <TechnologiesCarouselContainer />
+    </React.Fragment>
+  );
+};

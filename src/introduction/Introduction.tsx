@@ -4,7 +4,7 @@ import { colors } from '../theme/colors';
 import { ContactDetails } from './ConactDetails';
 import { NameAndSummary } from './NameAndSummary';
 import { ProfilePicture } from './ProfilePicture';
-import { MAX_WIDTH } from '../constants/layout';
+import { WIDTH_BOUNDARY_SMALL } from '../constants/layout';
 
 export const Introduction: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ const IntroductionWrapper = styled.div`
   gap: 3em;
   padding: 3em 1em 3em;
 
-  @media (max-width: ${MAX_WIDTH}) {
+  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     flex-direction: column-reverse;
     padding: 1em;
     gap: 1em;
@@ -42,7 +42,7 @@ const InfoWrapper = styled.div`
   width: 500px;
   height: 275px;
 
-  @media (max-width: ${MAX_WIDTH}) {
+  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     height: 225px;
     width: 100%;
     max-width: 500px;

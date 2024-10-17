@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from './theme/colors';
-import { MAX_WIDTH } from './constants/layout';
+import { WIDTH_BOUNDARY_SMALL } from './constants/layout';
 
 export const AppContainer = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const AppContainer = styled.div`
   flex: 1;
   background-color: ${colors.LEAD};
 
-  @media (max-width: ${MAX_WIDTH}) {
+  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     font-size: 0.875em;
   }
 `;

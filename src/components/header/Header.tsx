@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../theme/colors';
+import { colors } from '../../theme/colors';
+import { fromPublic } from '../../utils/fromPublic';
 
 export const Header: React.FC = () => {
   return (
     <StyledHeader>
       <BitmojiImageWrapper>
-        <img src="bitmoji.jpeg" alt="Junaid Malik's Bitmoji" />
+        <img src={fromPublic('bitmoji.jpeg')} alt="Junaid Malik's Bitmoji" />
       </BitmojiImageWrapper>
     </StyledHeader>
   );
