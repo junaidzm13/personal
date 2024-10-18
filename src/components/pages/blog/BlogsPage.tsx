@@ -6,25 +6,27 @@ import { fromPublic } from '../../../utils/fromPublic';
 import { colors } from '../../../theme/colors';
 import { CleanReactPost } from './posts/CleanReactPost';
 import { Link } from 'react-router-dom';
-import { WIDTH_BOUNDARY_SMALLEST } from '../../../constants/layout';
+import { OVERRIDE_EM_FONT } from '../../../constants/css';
 
 export const BlogsPage: React.FC = () => {
   return (
     <Wrapper>
-      <PageHeader>
-        <PageHeading>{'Blogs'}</PageHeading>
-        <span>
-          Consider this a journal where I document my unique experiences,
-          learnings as well as industry best-practices.
-        </span>
-      </PageHeader>
-      <CardsWrapper>
-        {blogs.map(b => (
-          <NoStyleLink to={b.id}>
-            <BlogCard {...b} key={b.id} />
-          </NoStyleLink>
-        ))}
-      </CardsWrapper>
+      <InnerWrapper>
+        <PageHeader>
+          <PageHeading>{'Blogs'}</PageHeading>
+          <PageDescription>
+            Consider this a journal where I document my unique experiences,
+            learnings as well as industry best-practices.
+          </PageDescription>
+        </PageHeader>
+        <CardsWrapper>
+          {blogs.map(b => (
+            <NoStyleLink to={b.id}>
+              <BlogCard {...b} key={b.id} />
+            </NoStyleLink>
+          ))}
+        </CardsWrapper>
+      </InnerWrapper>
     </Wrapper>
   );
 };
@@ -38,40 +40,43 @@ const Wrapper = styled.div`
   padding: 1em;
 `;
 
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 57em;
+`;
+
 const PageHeading = styled.span`
   font-size: 3em;
   font-weight: bold;
   letter-spacing: 0.5px;
 `;
 
+const PageDescription = styled.span`
+  ${OVERRIDE_EM_FONT}
+`;
+
 const PageHeader = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 60em;
-  width: 95%;
   gap: 1em;
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 
   border-bottom: 1px solid ${colors.GRAY};
-
-  @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
-    align-items: center;
-    justify-content: start;
-  }
 `;
 
 const CardsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 95%;
-  max-width: 60em;
-  gap: 3em;
+  width: 100%;
+  gap: 2em;
 
-  @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
+  @media (max-width: 45em) {
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    gap: 1em;
   }
 `;
 
@@ -88,7 +93,7 @@ const BlogCard: React.FC<Blog> = props => {
       </BlogItemImage>
       <BlogItemBody>
         <BlogItemHeader>
-          <span>{props.title}</span>
+          <BlogItemTitle>{props.title}</BlogItemTitle>
           <DateAndReadingTimeWrapper>
             <span>{props.datePublished}</span>
             <span>{props.readingTimeMins} min read</span>
@@ -101,10 +106,12 @@ const BlogCard: React.FC<Blog> = props => {
 };
 
 const BlogItemWrapper = styled.div`
+  ${OVERRIDE_EM_FONT}
   display: flex;
   flex-direction: column;
   height: fit-content;
-  width: 17.5em;
+  max-width: 17.5em;
+  width: 100%;
   border: solid 1px black;
   border-radius: 0.5em;
   overflow: hidden;
@@ -140,6 +147,10 @@ const BlogItemHeader = styled.div`
   flex-direction: column;
   gap: 0.25em;
   align-items: start;
+`;
+
+const BlogItemTitle = styled.span`
+  color: ${colors.LEAD};
 `;
 
 const DateAndReadingTimeWrapper = styled.div`

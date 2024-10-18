@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { fromPublic } from '../utils/fromPublic';
 
 export const ProfilePicture: React.FC = () => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <img src="bitmoji2.jpeg" alt="Junaid's bitmoji-2" />
+        <img src={fromPublic('bitmoji2.jpeg')} alt="Junaid's bitmoji-2" />
       </ImageWrapper>
     </Wrapper>
   );

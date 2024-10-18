@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
+import { fromPublic } from '../utils/fromPublic';
 
 export type CarouselImage = {
   src: string;
@@ -38,7 +39,7 @@ const LogoImg: React.FC<{ carouselImage: CarouselImage }> = ({
   return (
     <div className="logo">
       {carouselImage.item?.node}
-      <img src={carouselImage.src} alt={carouselImage.alt} />
+      <img src={fromPublic(carouselImage.src)} alt={carouselImage.alt} />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   WIDTH_BOUNDARY_SMALLEST,
   WIDTH_BOUNDARY_SMALL,
 } from '../../../../constants/layout';
+import { OVERRIDE_EM_FONT } from '../../../../constants/css';
 
 type Props = Exclude<Blog, 'component'> & { children: React.ReactNode };
 
@@ -45,6 +46,7 @@ const Wrapper = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  ${OVERRIDE_EM_FONT}
 
   border-bottom: solid 1px ${colors.GRAY};
 
@@ -93,5 +95,6 @@ const CoverImg = styled.img`
 `;
 
 const StyledTags = styled(Tags)`
+  ${OVERRIDE_EM_FONT}
   padding: 0.5em 0.125em;
 `;
