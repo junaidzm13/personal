@@ -47,11 +47,17 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${OVERRIDE_EM_FONT}
-
   border-bottom: solid 1px ${colors.GRAY};
+  padding: 0.5em 0;
+  margin-bottom: 0.25em;
 
-  > p {
+  p {
     line-height: 1.6;
+    margin: 0.5em 0;
+  }
+
+  ol {
+    margin: 0;
   }
 `;
 

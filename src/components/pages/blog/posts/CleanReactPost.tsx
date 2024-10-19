@@ -9,8 +9,8 @@ export const CleanReactPost: React.FC = () => {
     <>
       <p>
         This is the first in the series of short blog posts I plan to put up
-        here documenting my experiences, learnings as well as industry
-        best-practices. Lets jump right into it.
+        here documenting my experiences, learnings and industry best-practices.
+        Lets jump right into it.
       </p>
       <p>
         While revamping and redesigning our content management and distribution
@@ -25,7 +25,7 @@ export const CleanReactPost: React.FC = () => {
         startingLineNumber={1}
         theme={dracula}
       />
-      <p>
+      <p style={{ marginBottom: 0 }}>
         In my opinion, the above code, although syntactically correct, has a lot
         of repetition and potential for things to go wrong:
       </p>
