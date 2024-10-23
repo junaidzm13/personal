@@ -40,7 +40,7 @@ const colorByTagType: Record<BlogTagType, Color> = {
     lightShade: '#C4E3ED',
     darkShade: '#2A7189',
   },
-  [BlogTagType.Paradigm]: {
+  [BlogTagType.Language]: {
     lightShade: '#FFCCCC',
     darkShade: '#FF3355',
   },

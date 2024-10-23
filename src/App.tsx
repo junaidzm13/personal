@@ -1,34 +1,40 @@
 import React from 'react';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import { Header } from './components/header/Header';
 import { AppContainer } from './AppContainer';
-import { Introduction } from './introduction/Introduction';
 import { Footer } from './components/footer/Footer';
-import { TechnologiesCarouselContainer } from './carousel/TechnologiesCarouselContainer';
-import { Routes, Route, HashRouter } from 'react-router-dom';
 import { BlogsPage } from './components/pages/blog/BlogsPage';
 import { BlogPost } from './components/pages/blog/BlogPost';
+import { HomePage } from './components/pages/home/HomePage';
 
 export default function App() {
   return (
-    <AppContainer>
-      <Header />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/blogs" element={<BlogsPage />} />
-          <Route path="/blogs/:id" element={<BlogPost />} />
-        </Routes>
-      </HashRouter>
-      <Footer />
-    </AppContainer>
+    <HashRouter>
+      <Routes>
+        {routesProps.map(r => (
+          <Route
+            key={r.path}
+            path={r.path}
+            element={<AppLayout>{r.element}</AppLayout>}
+          />
+        ))}
+      </Routes>
+    </HashRouter>
   );
 }
 
-const HomePage: React.FC = () => {
+const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <React.Fragment>
-      <Introduction />
-      <TechnologiesCarouselContainer />
-    </React.Fragment>
+    <AppContainer>
+      <Header />
+      {children}
+      <Footer />
+    </AppContainer>
   );
 };
+
+const routesProps: Array<{ path: string; element: JSX.Element }> = [
+  { path: '/', element: <HomePage /> },
+  { path: '/blogs', element: <BlogsPage /> },
+  { path: '/blogs/:id', element: <BlogPost /> },
+];

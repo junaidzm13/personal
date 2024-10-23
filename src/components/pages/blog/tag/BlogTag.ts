@@ -3,19 +3,21 @@ export enum BlogTag {
   CleanCode = 'CleanCode',
   DesignPatterns = 'DesignPatterns',
   Kotlin = 'Kotlin',
+  SpringBoot = 'SpringBoot',
   TypeScript = 'TypeScript',
 }
 
 export enum BlogTagType {
   Fundamental = 'Fundamental',
   Technology = 'Technology',
-  Paradigm = 'Paradigm',
+  Language = 'Language',
 }
 
 export const blogTagByType: Record<BlogTag, BlogTagType> = {
   [BlogTag.CleanCode]: BlogTagType.Fundamental,
   [BlogTag.DesignPatterns]: BlogTagType.Fundamental,
-  [BlogTag.Kotlin]: BlogTagType.Technology,
+  [BlogTag.Kotlin]: BlogTagType.Language,
   [BlogTag.React]: BlogTagType.Technology,
-  [BlogTag.TypeScript]: BlogTagType.Technology,
+  [BlogTag.SpringBoot]: BlogTagType.Technology,
+  [BlogTag.TypeScript]: BlogTagType.Language,
 };

@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { keyframes } from 'styled-components';
-import { fromPublic } from '../utils/fromPublic';
+import styled, { keyframes } from 'styled-components';
+import { fromPublic } from '../../../../utils/fromPublic';
 
 export type CarouselImage = {
   src: string;

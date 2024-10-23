@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../theme/colors';
 import { ContactDetails } from './ConactDetails';
 import { NameAndSummary } from './NameAndSummary';
 import { ProfilePicture } from './ProfilePicture';
-import { WIDTH_BOUNDARY_SMALL } from '../constants/layout';
+import { colors } from '../../../../theme/colors';
+import { WIDTH_BOUNDARY_SMALL } from '../../../../constants/layout';
 
 export const Introduction: React.FC = () => {
   return (

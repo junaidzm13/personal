@@ -7,6 +7,7 @@ import { colors } from '../../../theme/colors';
 import { CleanReactPost } from './posts/CleanReactPost';
 import { Link } from 'react-router-dom';
 import { OVERRIDE_EM_FONT } from '../../../constants/css';
+import { DataSourceReplacementPost } from './posts/DataSourceReplacementPost';
 
 export const BlogsPage: React.FC = () => {
   return (
@@ -99,7 +100,7 @@ const BlogCard: React.FC<Blog> = props => {
             <span>{props.readingTimeMins} min read</span>
           </DateAndReadingTimeWrapper>
         </BlogItemHeader>
-        <Tags tags={props.tags} />
+        <Tags tags={props.tags.slice(0, 3)} />
       </BlogItemBody>
     </BlogItemWrapper>
   );
@@ -165,7 +166,6 @@ const DateAndReadingTimeWrapper = styled.div`
 export type Blog = {
   id: string;
   title: string;
-  mdFileName: string;
   tags: Array<BlogTag>;
   datePublished: string;
   readingTimeMins: number;
@@ -175,13 +175,26 @@ export type Blog = {
 
 export const blogs: Array<Blog> = [
   {
-    id: '0001',
+    id: '1',
     title: 'Writing clean React using HOFs as callbacks',
-    mdFileName: 'clean-react.md',
     tags: [BlogTag.CleanCode, BlogTag.React, BlogTag.TypeScript],
     datePublished: '15 Oct 2024',
     readingTimeMins: 2,
     cover: 'clean-react.png',
     component: () => <CleanReactPost />,
+  },
+  {
+    id: '2',
+    title: 'Replacing a critical datasource with minimal change in downstream',
+    tags: [
+      BlogTag.CleanCode,
+      BlogTag.DesignPatterns,
+      BlogTag.Kotlin,
+      BlogTag.SpringBoot,
+    ],
+    datePublished: '22 Oct 2024',
+    readingTimeMins: 3,
+    cover: 'datasource-replacement.png',
+    component: () => <DataSourceReplacementPost />,
   },
 ];

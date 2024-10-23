@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { colors } from '../theme/colors';
 import { Link } from 'react-router-dom';
-import { fromPublic } from '../utils/fromPublic';
+import styled from 'styled-components';
+import { colors } from '../../../../theme/colors';
+import { fromPublic } from '../../../../utils/fromPublic';
 
 export const ContactDetails: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fromPublic } from '../utils/fromPublic';
+import { fromPublic } from '../../../../utils/fromPublic';
 
 export const ProfilePicture: React.FC = () => {
   return (
