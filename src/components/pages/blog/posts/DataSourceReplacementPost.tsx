@@ -1,10 +1,10 @@
 import React from 'react';
 import { dracula } from 'react-code-blocks';
+import styled from 'styled-components';
 import { InlineCode } from './InlineCode';
 import { Note } from './Note';
 import { CodeSnippet } from './CodeSippet';
 import { fromPublic } from '../../../../utils/fromPublic';
-import styled from 'styled-components';
 
 export const DataSourceReplacementPost: React.FC = () => {
   return (
@@ -131,8 +131,13 @@ const factoryCode = `class CommonClientFactory {
         retryTemplate: RetryTemplate
     ) : TheCommonClient {
         when (dataSource) {
-            is ExistingDataSource -> Adapter1(client = ClientOfExistingDataSource(...))
-            is NewDataSource -> Adapter2(client1 = Client1OfNewDataSource(...), ...)
+            is ExistingDataSource -> Adapter1(
+                client = ClientOfExistingDataSource(...)
+            )
+            is NewDataSource -> Adapter2(
+                client1 = Client1OfNewDataSource(...),
+                ...
+            )
         }
     }
 }`;
