@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../../../../theme/colors';
-import { fromPublic } from '../../../../utils/fromPublic';
+import { Icon, IconProps } from '../../../common/icons/Icon';
 
 export const ContactDetails: React.FC = () => {
   return (
@@ -17,34 +17,54 @@ export const ContactDetails: React.FC = () => {
   );
 };
 
+const ContactWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  width: 100%;
+
+  > .email {
+    font-weight: bold;
+    font-size: 1.125em;
+  }
+`;
+
+const Links = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.675em;
+  height: 100%;
+
+  > a > img {
+    height: 3em;
+  }
+`;
+
 const profiles = [
   {
-    src: 'linkedin.svg',
-    alt: 'LinkedIn logo',
+    icon: 'linkedin',
     href: 'https://linkedin.com/in/junaid-z-malik',
   },
   {
-    src: 'github.svg',
-    alt: 'GitHub logo',
+    icon: 'github',
     href: 'https://github.com/junaidzm13?tab=repositorie',
   },
   {
-    src: 'blog.svg',
-    alt: 'Blog logo',
+    icon: 'blog',
     href: '/blogs',
     isNew: true,
   },
 ] as const;
 
 const ProfileSvg: React.FC<{
-  src: string;
-  alt: string;
+  icon: IconProps['name'];
   href: string;
   isNew?: boolean;
-}> = ({ src, alt, href, isNew = false }) => (
+}> = ({ icon, href, isNew = false }) => (
   <StyledLink to={href}>
     {isNew && <NewBanner />}
-    <img src={fromPublic(src)} alt={alt} />
+    <StyledIcon name={icon} />
   </StyledLink>
 );
 
@@ -57,6 +77,11 @@ const StyledLink = styled(Link)`
     opacity: 0.75;
     cursor: pointer;
   }
+`;
+
+const StyledIcon = styled(Icon)`
+  width: 2.5em;
+  height: 2.5em;
 `;
 
 const NewBanner: React.FC = () => {
@@ -82,29 +107,7 @@ const NewBannerWrapper = styled.div<{ color: string }>`
   right: 0;
   padding: 0.0675em 0.25em;
   background-color: ${colors.GRAY};
-  border-radius: 0.5em;
+  border-radius: 0.25em;
+  font-size: 0.6125em;
   ${({ color }) => `color: ${color}; border: solid 1px ${color};`};
-`;
-
-const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: start;
-  width: 100%;
-
-  > .email {
-    font-weight: bold;
-    font-size: 1.125em;
-  }
-`;
-
-const Links = styled.div`
-  display: flex;
-  gap: 0.675em;
-  height: 100%;
-
-  > a > img {
-    height: 3em;
-  }
 `;

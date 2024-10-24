@@ -5,6 +5,7 @@ import { InlineCode } from './InlineCode';
 import { Note } from './Note';
 import { CodeSnippet } from './CodeSippet';
 import { fromPublic } from '../../../../utils/fromPublic';
+import { Icon } from '../../../common/icons/Icon';
 
 export const DataSourceReplacementPost: React.FC = () => {
   return (
@@ -92,9 +93,16 @@ export const DataSourceReplacementPost: React.FC = () => {
       />
       <Note style={{ marginTop: 0 }}>
         * <InlineCode>sealed</InlineCode> guarantees that the interface is not
-        extendable outside of the file. This made sure that 1) the passed data
-        sources are the ones we expect 2) the user can easily see all the
-        available datasources in a single file.
+        extendable outside of the compilation unit. For our use-case we used it
+        as an "enum with superpowers".{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://stackoverflow.com/questions/50772328/what-are-sealed-classes-in-kotlin"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          Read more <Icon name="open-link" />
+        </a>
       </Note>
       <p>
         Factory pattern also made it easier to feature-flag the underlying data

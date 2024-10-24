@@ -1,26 +1,34 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { fromPublic } from '../../utils/fromPublic';
 import { colors } from '../../theme/colors';
+import { Icon, IconProps } from '../common/icons/Icon';
 
 type Props = {
   anchorId: string;
   yOffset?: number;
 };
 
-export const Menu: React.FC<Props> = props => {
+const DEFAULT_Y_OFFSET = 60 as const;
+const Y_OFFSET_ADJUSTMENT = 5 as const;
+
+export const Menu: React.FC<Props> = ({ anchorId, yOffset }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const yPosition = useMemo(
+    () => (yOffset ? yOffset + Y_OFFSET_ADJUSTMENT : DEFAULT_Y_OFFSET),
+    [yOffset]
+  );
 
   return (
     <Tooltip
-      anchorSelect={`#${props.anchorId}`}
+      anchorSelect={`#${anchorId}`}
       clickable
       noArrow
       place="bottom-start"
       positionStrategy="absolute"
-      position={{ x: -5, y: (props.yOffset ?? 55) + 5 }}
+      position={{ x: -5, y: yPosition }}
       offset={0}
       disableStyleInjection
       opacity={1}
@@ -57,17 +65,17 @@ const Wrapper = styled.div`
 type MenuItemProps = {
   text: string;
   to: string;
-  src: string;
+  icon: IconProps['name'];
   onClick: () => void;
 };
 
 const MenuItem: React.FC<MenuItemProps> = props => {
-  const { text, to, src, onClick } = props;
+  const { text, to, icon, onClick } = props;
   const { pathname } = useLocation();
 
   return (
     <StyledLink to={to} onClick={onClick} selected={pathname === to}>
-      <img src={fromPublic(src)} alt={`Go to ${text.toLowerCase} page.`} />
+      <StyledIcon name={icon} />
       <span>{text}</span>
     </StyledLink>
   );
@@ -94,20 +102,21 @@ const StyledLink = styled(Link)<{ selected: boolean }>`
   & > span {
     letter-spacing: 0.4px;
   }
+`;
 
-  & > img {
-    width: 1.0675em;
-  }
+const StyledIcon = styled(Icon)`
+  width: 1.0675em;
+  height: auto;
 `;
 
 const items: Array<Omit<MenuItemProps, 'onClick'>> = [
   {
-    src: 'home-icon.svg',
+    icon: 'home',
     to: '/',
     text: 'Home',
   },
   {
-    src: 'typewriter-icon.svg',
+    icon: 'typewriter',
     to: '/blogs',
     text: 'Blogs',
   },
