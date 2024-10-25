@@ -1,1 +1,1 @@
-export const OVERRIDE_EM_FONT = `font-size: 16px;`;
+export const FONT_SIZE_OVERRIDE = `font-size: 16px;`;

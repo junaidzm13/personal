@@ -18,7 +18,7 @@ const Wrapper = styled.footer`
   justify-content: center;
   padding: 0.5em;
   gap: 0.25em;
-  background-color: ${colors.GRAY};
+  background-color: ${colors.GRAY_3};
   color: ${colors.LEAD};
 
   > img {

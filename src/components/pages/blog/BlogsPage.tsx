@@ -6,7 +6,7 @@ import { fromPublic } from '../../../utils/fromPublic';
 import { colors } from '../../../theme/colors';
 import { CleanReactPost } from './posts/CleanReactPost';
 import { Link } from 'react-router-dom';
-import { OVERRIDE_EM_FONT } from '../../../constants/css';
+import { FONT_SIZE_OVERRIDE } from '../../../constants/css';
 import { DataSourceReplacementPost } from './posts/DataSourceReplacementPost';
 
 export const BlogsPage: React.FC = () => {
@@ -54,7 +54,7 @@ const PageHeading = styled.span`
 `;
 
 const PageDescription = styled.span`
-  ${OVERRIDE_EM_FONT}
+  ${FONT_SIZE_OVERRIDE}
 `;
 
 const PageHeader = styled.div`
@@ -64,7 +64,7 @@ const PageHeader = styled.div`
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 
-  border-bottom: 1px solid ${colors.GRAY};
+  border-bottom: 1px solid ${colors.GRAY_3};
 `;
 
 const CardsWrapper = styled.div`
@@ -107,7 +107,7 @@ const BlogCard: React.FC<Blog> = props => {
 };
 
 const BlogItemWrapper = styled.div`
-  ${OVERRIDE_EM_FONT}
+  ${FONT_SIZE_OVERRIDE}
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -140,7 +140,7 @@ const BlogItemBody = styled.div`
   gap: 2em;
   padding: 0.5em;
   border-top: solid 1px ${colors.LEAD};
-  background-color: ${colors.GRAY};
+  background-color: ${colors.GRAY_3};
 `;
 
 const BlogItemHeader = styled.div`
