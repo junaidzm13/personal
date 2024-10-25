@@ -1,9 +1,9 @@
 import React from 'react';
 import { dracula } from 'react-code-blocks';
 import styled from 'styled-components';
-import { InlineCode } from './InlineCode';
-import { Note } from './Note';
-import { CodeSnippet } from './CodeSippet';
+import { InlineCode } from './common/InlineCode';
+import { Note } from './common/Note';
+import { CodeSnippet } from './common/CodeSippet';
 import { fromPublic } from '../../../../utils/fromPublic';
 import { Icon } from '../../../common/icons/Icon';
 
@@ -13,11 +13,12 @@ export const DataSourceReplacementPost: React.FC = () => {
       <p>
         I recently led a cross-functional team to replace a critical datasource
         under a strict time constraint while ensuring minimal impact on our
-        daily operations. Here I will be outlining the high-level design of our
-        approach.
+        daily operations. In this blog, I will be outlining the steps we took to
+        ensure successful delivery.
       </p>
       <p>
-        The diagram below depicts the high-level system design of our solution:
+        Lets start with a diagram which would help you get a better
+        understanding of the high-level system design of our solution:
       </p>
       <SystemDesignImgWrapper>
         <img
@@ -27,15 +28,15 @@ export const DataSourceReplacementPost: React.FC = () => {
         />
       </SystemDesignImgWrapper>
       <p style={{ marginBottom: 0 }}>
-        We first introduced a common interface that would directly be consumed
+        First, we introduced a common interface that would directly be consumed
         by the downstream dependencies. This gave us the following benefits:
       </p>
       <ol>
         <li>
           <p>
-            The implementation details and the underlying datasource were hidden
-            from the consumers of the interface. All they should care is that
-            the contract (as defined by the interface) is upheld.
+            The implementation details and the underlying datasources were
+            hidden from the consumers of the interface. All they should care is
+            that the contract (as defined by the interface) is upheld.
           </p>
         </li>
         <li>

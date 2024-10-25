@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { CodeBlock } from 'react-code-blocks';
 import { CodeBlockProps } from 'react-code-blocks/dist/components/CodeBlock';
 import styled from 'styled-components';
-import { WIDTH_BOUNDARY_SMALLEST } from '../../../../constants/layout';
+import { WIDTH_BOUNDARY_SMALLEST } from '../../../../../constants/layout';
 
 type Props = CodeBlockProps & { style?: CSSProperties };
 

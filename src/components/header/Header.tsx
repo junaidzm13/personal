@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../theme/colors';
 import { fromPublic } from '../../utils/fromPublic';
@@ -16,8 +10,8 @@ export const Header: React.FC = () => {
 
   useLayoutEffect(() => {
     if (!viewRef.current) return;
-    const resizeObserver = new ResizeObserver(es =>
-      setHeight(es[0].contentRect.height)
+    const resizeObserver = new ResizeObserver(([entry, ..._]) =>
+      setHeight(entry.contentRect.height)
     );
     resizeObserver.observe(viewRef.current);
     return () => resizeObserver.disconnect();

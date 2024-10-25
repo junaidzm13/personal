@@ -31,9 +31,7 @@ const Wrapper = styled.div`
 `;
 
 const summaryTexts = [
-  `A driven and talented software engineer with 3 years of professional full-stack development experience.`,
-  `Focused on fundamentals, best practices, and delivering clean scalable solutions to complex problems.`,
+  `Technology evangelist with 3 years of professional full-stack development experience, a stong focus on fundamentals and a track recod of delivering simple solutions to complex problems.`,
   `His willingness to learn and ability to adapt has equipped him with expertise in a range of tech stacks and programming paradigms.`,
-  `Has wide breadth of experience including DevOps, Cloud, WebDevelopment and Data Engineering.`,
-  `Is committed to continuous learning and adept at mastering new technologies.`,
+  `Has wide breadth of experience including DevOps, Cloud, Web Development and Data Engineering.`,
 ];

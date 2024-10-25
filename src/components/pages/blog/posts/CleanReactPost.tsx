@@ -1,8 +1,8 @@
 import React from 'react';
 import { dracula } from 'react-code-blocks';
-import { InlineCode } from './InlineCode';
-import { Note } from './Note';
-import { CodeSnippet } from './CodeSippet';
+import { InlineCode } from './common/InlineCode';
+import { Note } from './common/Note';
+import { CodeSnippet } from './common/CodeSippet';
 
 export const CleanReactPost: React.FC = () => {
   return (

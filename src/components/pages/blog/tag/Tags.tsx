@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { BlogTag } from './BlogTag';
 import { Tag } from './Tag';
@@ -8,17 +7,15 @@ type Props = {
   className?: string;
 };
 
-export const Tags: React.FC<Props> = ({ className, tags }) => {
+export const Tags = styled(({ className, tags }: Props) => {
   return (
-    <Wrapper className={className}>
+    <div className={className}>
       {tags.map(t => (
         <Tag tag={t} key={t} />
       ))}
-    </Wrapper>
+    </div>
   );
-};
-
-const Wrapper = styled.div`
+})`
   display: flex;
   flex-direction: row;
   align-items: center;

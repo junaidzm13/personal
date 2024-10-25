@@ -14,27 +14,10 @@ export const SpanWithTypingAnimation: React.FC<Props> = props => {
   });
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setState(s => {
-        switch (getNextTypeAction(s, texts)) {
-          case 'pause':
-            return {
-              ...s,
-              intervalsFullTextShown: s.intervalsFullTextShown + 1,
-            };
-          case 'change':
-            return {
-              textIndex: (s.textIndex + 1) % texts.length,
-              endCharacterIndex: s.endCharacterIndex + 1,
-              intervalsFullTextShown: 0,
-            };
-          case 'forward':
-            return { ...s, endCharacterIndex: s.endCharacterIndex + 1 };
-          case 'backward':
-            return { ...s, endCharacterIndex: s.endCharacterIndex - 1 };
-        }
-      });
-    }, DURATION_BETWEEN_EACH_CHAR_CHANGE_MS);
+    const interval = setInterval(
+      () => setState(s => getNewState(s, texts)),
+      DURATION_BETWEEN_EACH_CHAR_CHANGE_MS
+    );
 
     return () => clearInterval(interval);
   }, [texts]);
@@ -53,17 +36,46 @@ type AnimationState = {
   intervalsFullTextShown: number;
 };
 
+function getNewState(
+  prevState: AnimationState,
+  texts: Props['texts']
+): AnimationState {
+  switch (getNextAction(prevState, texts)) {
+    case 'pause':
+      return {
+        ...prevState,
+        intervalsFullTextShown: prevState.intervalsFullTextShown + 1,
+      };
+    case 'change':
+      return {
+        textIndex: (prevState.textIndex + 1) % texts.length,
+        endCharacterIndex: prevState.endCharacterIndex + 1,
+        intervalsFullTextShown: 0,
+      };
+    case 'forward':
+      return {
+        ...prevState,
+        endCharacterIndex: prevState.endCharacterIndex + 1,
+      };
+    case 'backward':
+      return {
+        ...prevState,
+        endCharacterIndex: prevState.endCharacterIndex - 1,
+      };
+  }
+}
+
 const DURATION_TO_SHOW_FULL_TEXT_MS = 2000;
 const DURATION_BETWEEN_EACH_CHAR_CHANGE_MS = 50;
 const DURATION_TO_SHOW_FULL_TEXT_AS_A_FACTOR_OF_EACH_CHAR_CHANGE =
   DURATION_TO_SHOW_FULL_TEXT_MS / DURATION_BETWEEN_EACH_CHAR_CHANGE_MS;
 
-type NextTypeAction = 'forward' | 'backward' | 'pause' | 'change';
+type NextAction = 'forward' | 'backward' | 'pause' | 'change';
 
-function getNextTypeAction(
+function getNextAction(
   state: AnimationState,
   texts: Props['texts']
-): NextTypeAction {
+): NextAction {
   if (
     state.intervalsFullTextShown ===
       DURATION_TO_SHOW_FULL_TEXT_AS_A_FACTOR_OF_EACH_CHAR_CHANGE &&
