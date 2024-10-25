@@ -19,7 +19,7 @@ jobs:
     - name: Cache build
       uses: actions/cache/save@v4
       with:
-        path: build
+        path: build/*
         key: build-${{ hashFiles('package-lock.json') }}
 
   publish-artifacts:
@@ -32,7 +32,7 @@ jobs:
       - name: Restore cached build
         uses: actions/cache/restore@v4
         with:
-          path: build
+          path: build/*
           key: build-${{ hashFiles('package-lock.json') }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
