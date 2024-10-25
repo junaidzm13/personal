@@ -19,12 +19,12 @@ jobs:
     - name: Cache build
       uses: actions/cache/save@v4
       with:
-        path: build
+        path: build/*
         key: build-${{ hashFiles('package-lock.json') }}
 
   publish-artifacts:
     needs: build
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,8 +32,9 @@ jobs:
       - name: Restore cached build
         uses: actions/cache/restore@v4
         with:
-          path: build
+          path: build/*
           key: build-${{ hashFiles('package-lock.json') }}
+      - run: ls ./build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -41,7 +42,7 @@ jobs:
           
   deploy:
     needs: publish-artifacts
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
