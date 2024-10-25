@@ -5,12 +5,12 @@ import { fromPublic } from '../../../../utils/fromPublic';
 import { colors } from '../../../../theme/colors';
 import { Tags } from '../tag/Tags';
 import {
-  WIDTH_BOUNDARY_SMALLEST,
   WIDTH_BOUNDARY_SMALL,
+  WIDTH_BOUNDARY_SMALLEST,
 } from '../../../../constants/layout';
-import { OVERRIDE_EM_FONT } from '../../../../constants/css';
+import { FONT_SIZE_OVERRIDE } from '../../../../constants/css';
 
-type Props = Exclude<Blog, 'component'> & { children: React.ReactNode };
+type Props = Omit<Blog, 'component'> & { children: React.ReactNode };
 
 export const PostWrapper: React.FC<Props> = props => {
   const { cover, datePublished, readingTimeMins, tags, title, children } =
@@ -37,18 +37,15 @@ export const PostWrapper: React.FC<Props> = props => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50em;
-
-  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
-    width: 95%;
-  }
+  max-width: 50em;
+  width: 95%;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${OVERRIDE_EM_FONT}
-  border-bottom: solid 1px ${colors.GRAY};
+  ${FONT_SIZE_OVERRIDE}
+  border-bottom: solid 1px ${colors.GRAY_3};
   padding: 0.5em 0;
   margin-bottom: 0.25em;
 
@@ -67,7 +64,7 @@ const HeadingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 1px ${colors.GRAY};
+  border-bottom: solid 1px ${colors.GRAY_3};
 
   @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
     flex-direction: column-reverse;
@@ -88,7 +85,11 @@ const DateAndReadingTimeWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  @media (max-width: 500px) {
+  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
+    font-size: 1.75em;
+  }
+
+  @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
     font-size: 1.5em;
   }
 `;
@@ -96,12 +97,12 @@ const Title = styled.h1`
 const CoverImg = styled.img`
   width: 15em;
 
-  @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
+  @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     width: 12em;
   }
 `;
 
 const StyledTags = styled(Tags)`
-  ${OVERRIDE_EM_FONT}
+  ${FONT_SIZE_OVERRIDE}
   padding: 0.5em 0.125em;
 `;

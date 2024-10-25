@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   box-shadow: 0.1px 0.1px 3px black;
   min-width: 10em;
 
-  background-color: ${colors.GRAY};
+  background-color: ${colors.GRAY_3};
 
   & > * {
     border-top: solid 1px ${colors.GRAY_1};

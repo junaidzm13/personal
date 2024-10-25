@@ -106,7 +106,7 @@ const NewBannerWrapper = styled.div<{ color: string }>`
   top: 0;
   right: 0;
   padding: 0.0675em 0.25em;
-  background-color: ${colors.GRAY};
+  background-color: ${colors.GRAY_3};
   border-radius: 0.25em;
   font-size: 0.6125em;
   ${({ color }) => `color: ${color}; border: solid 1px ${color};`};

@@ -23,7 +23,7 @@ const IntroductionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-  color: ${colors.GRAY};
+  color: ${colors.GRAY_3};
   gap: 3em;
   padding: 3em 1em 3em;
 
