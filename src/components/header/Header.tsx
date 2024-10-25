@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
 
   useLayoutEffect(() => {
     if (!viewRef.current) return;
-    const resizeObserver = new ResizeObserver(([entry, ..._]) =>
+    const resizeObserver = new ResizeObserver(([entry]) =>
       setHeight(entry.contentRect.height)
     );
     resizeObserver.observe(viewRef.current);
