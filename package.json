@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://junaidzm13.github.io/portfolio",
+  "homepage": "https://junaidzm13.github.io/personal",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
