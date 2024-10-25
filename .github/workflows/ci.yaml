@@ -16,6 +16,11 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run lint
+    - name: Cache build
+      uses: actions/cache/save@v4
+      with:
+        path: build
+        key: build-${{ hashFiles('package-lock.json') }}
 
   publish-artifacts:
     needs: build
@@ -24,6 +29,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Restore cached build
+        uses: actions/cache/restore@v4
+        with:
+          path: build
+          key: build-${{ hashFiles('package-lock.json') }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
