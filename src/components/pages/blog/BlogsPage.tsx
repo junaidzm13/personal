@@ -22,8 +22,8 @@ export const BlogsPage: React.FC = () => {
         </PageHeader>
         <CardsWrapper>
           {blogs.map(b => (
-            <NoStyleLink to={b.id}>
-              <BlogCard {...b} key={b.id} />
+            <NoStyleLink key={b.id} to={b.id}>
+              <BlogCard {...b} />
             </NoStyleLink>
           ))}
         </CardsWrapper>
@@ -170,7 +170,7 @@ export type Blog = {
   datePublished: string;
   readingTimeMins: number;
   cover: string;
-  component: () => React.ReactElement<any, any>;
+  component: () => React.ReactNode;
 };
 
 export const blogs: Array<Blog> = [

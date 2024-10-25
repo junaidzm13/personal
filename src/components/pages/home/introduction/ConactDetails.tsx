@@ -9,8 +9,8 @@ export const ContactDetails: React.FC = () => {
     <ContactWrapper>
       <span className="email">junaidzmalik7@gmail.com</span>
       <Links>
-        {profiles.map(p => (
-          <ProfileSvg {...p} />
+        {profiles.map((p, idx) => (
+          <ProfileSvg key={idx} {...p} />
         ))}
       </Links>
     </ContactWrapper>

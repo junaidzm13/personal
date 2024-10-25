@@ -38,7 +38,7 @@ export const CleanReactPost: React.FC = () => {
         </li>
         <li>
           <p>
-            All the <InlineCode>label</InlineCode>`s are constants and should be
+            All the <InlineCode>label</InlineCode>'s are constants and should be
             treated as such. Can be easily defined outside of the component
             using a <InlineCode>Record</InlineCode>, as you'll see shortly.
           </p>
