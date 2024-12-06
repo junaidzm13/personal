@@ -13,8 +13,7 @@ const FlippingCardInner = styled.div`
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
-  animation: 2s ${animation} 1 linear;
-  animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  animation: 1s ${animation} 1 ease-out;
 `;
 
 type Props = {
