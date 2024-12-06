@@ -48,7 +48,7 @@ const profiles = [
   },
   {
     icon: 'github',
-    href: 'https://github.com/junaidzm13?tab=repositorie',
+    href: 'https://github.com/junaidzm13',
   },
   {
     icon: 'blog',

@@ -34,6 +34,7 @@ export const Menu: React.FC<Props> = ({ anchorId, yOffset }) => {
       opacity={1}
       isOpen={isMenuOpen}
       setIsOpen={setIsMenuOpen}
+      style={{ zIndex: 1 }}
     >
       <Wrapper>
         {items.map(item => (

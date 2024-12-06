@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fromPublic } from '../../../../utils/fromPublic';
+import { colors } from '../../../../theme/colors';
+import { FlippingCard } from '../../../common/FlippingCard';
 
 export const ProfilePicture: React.FC = () => {
   return (
     <Wrapper>
-      <ImageWrapper>
-        <img src={fromPublic('bitmoji2.jpeg')} alt="Junaid's bitmoji-2" />
-      </ImageWrapper>
+      <FlippingCard
+        front={<ContentFront className="flipping-card-front" />}
+        back={<ContentBack className="flipping-card-back" />}
+      />
     </Wrapper>
   );
 };
@@ -19,17 +22,54 @@ const Wrapper = styled.div`
   padding: 0.5em;
 `;
 
-const ImageWrapper = styled.div`
+const ContentFront = styled(({ className }: { className?: string }) => (
+  <div className={className}>
+    <img src={fromPublic('bitmoji2.jpeg')} alt="Junaid's bitmoji-2" />
+  </div>
+))`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 17em;
-  width: 17em;
-  border-radius: 30em;
   overflow: hidden;
+  border-radius: 30em;
 
   > img {
     height: 40em;
     margin-top: 10em;
+  }
+`;
+
+const ContentBack = styled(({ className }: { className?: string }) => (
+  <div className={className}>
+    <div className="content-back-inner">
+      <span className="content-back-greeting">Hola, Junaid here &#128075;</span>
+      <span className="content-back-tagline">
+        Your friendly neighbourhood <b>Software Engineer</b>! :D
+      </span>
+    </div>
+  </div>
+))`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${colors.GRAY_3};
+  border-radius: 30em;
+
+  & .content-back-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: ${colors.LEAD};
+    padding: 1em;
+  }
+
+  & .content-back-greeting {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+
+  & .content-back-tagline {
+    font-size: 1.125em;
   }
 `;
