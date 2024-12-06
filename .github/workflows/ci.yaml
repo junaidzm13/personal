@@ -20,7 +20,7 @@ jobs:
       uses: actions/cache/save@v4
       with:
         path: build/*
-        key: build-${{ hashFiles('package-lock.json') }}
+        key: build-${{ github.ref }}-${{ github.sha }}
 
   publish-artifacts:
     needs: build
@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: build/*
-          key: build-${{ hashFiles('package-lock.json') }}
+          key: build-${{ github.ref }}-${{ github.sha }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
