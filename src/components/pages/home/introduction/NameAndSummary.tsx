@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 `;
 
 const summaryTexts = [
-  `Technology evangelist with 3 years of professional full-stack development experience, a stong focus on fundamentals and a track recod of delivering simple solutions to complex problems.`,
-  `His willingness to learn and ability to adapt has equipped him with expertise in a range of tech stacks and programming paradigms.`,
-  `Has wide breadth of experience including DevOps, Cloud, Web Development and Data Engineering.`,
+  `Technology evangelist with 3 years of professional full-stack development and data engineering experience.`,
+  `His willingness to learn and ability to adapt has equipped him with expertise in a range of languages, tech stacks and programming paradigms.`,
+  `Has a stong focus on fundamentals and a track recod of delivering simple solutions to complex problems.`,
 ];
