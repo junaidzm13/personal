@@ -60,13 +60,13 @@ function getNewState(
     case 'backward':
       return {
         ...prevState,
-        endCharacterIndex: prevState.endCharacterIndex - 1,
+        endCharacterIndex: 0,
       };
   }
 }
 
 const DURATION_TO_SHOW_FULL_TEXT_MS = 2000;
-const DURATION_BETWEEN_EACH_CHAR_CHANGE_MS = 50;
+const DURATION_BETWEEN_EACH_CHAR_CHANGE_MS = 25;
 const DURATION_TO_SHOW_FULL_TEXT_AS_A_FACTOR_OF_EACH_CHAR_CHANGE =
   DURATION_TO_SHOW_FULL_TEXT_MS / DURATION_BETWEEN_EACH_CHAR_CHANGE_MS;
 
