@@ -16,8 +16,8 @@ export const BlogsPage: React.FC = () => {
         <PageHeader>
           <PageHeading>{'Blogs'}</PageHeading>
           <PageDescription>
-            Consider this a journal where I document my selected experiences,
-            learnings and industry best-practices.
+            A journal where I document my selected experiences, learnings and
+            industry best-practices.
           </PageDescription>
         </PageHeader>
         <CardsWrapper>

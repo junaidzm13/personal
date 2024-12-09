@@ -8,9 +8,9 @@ export const CleanReactPost: React.FC = () => {
   return (
     <>
       <p>
-        This is the first in the series of short blog posts I plan to put up
-        here documenting my experiences, learnings and industry best-practices.
-        Lets jump right into it.
+        This is the first in the series of short blogs where I'll be sharing my
+        experiences, insights and industry best-practices. Lets jump right into
+        it.
       </p>
       <p>
         While revamping and redesigning our content management and distribution
@@ -159,5 +159,5 @@ const labelsByField: Record<keyof SomeDocument, string> = {
 const p2s = [
   'Here you can also see how we treat labels as constants and define them outside of the component. Keeping the component itself scalable, clean and concise.',
   'This is one of the ways how I helped my team massively reduce techical debt while leading the revamp of our CMS with mission-critical enhancements.',
-  "That's all for today! If you have any suggestions or comments, please feel free to reach out — would love to learn and grow :)",
+  "That's all for now — hope you learned something new! If you have any suggestions, comments, or just want to connect and chat, feel free to reach out!",
 ];

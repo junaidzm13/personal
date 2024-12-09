@@ -94,7 +94,7 @@ export const DataSourceReplacementPost: React.FC = () => {
       />
       <Note style={{ marginTop: 0 }}>
         * <InlineCode>sealed</InlineCode> guarantees that the interface is not
-        extendable outside of the compilation unit. For our use-case we used it
+        extendable outside of the compilation unit. For our use-case, we used it
         as an "enum with superpowers".{' '}
         <a
           target="_blank"
@@ -116,11 +116,7 @@ export const DataSourceReplacementPost: React.FC = () => {
         the correctness of our map/reduce logic. Which actually helped remediate
         some of the subtle discrepancies before we went live in production.
       </p>
-      <p>
-        That's all for this one, hope you learned something new! Feel free to
-        reach out in case you have any suggestions/comments, or if you'd like to
-        connect or have a chat! :)
-      </p>
+      <p>That's all for this one, hope you learned something new! :)</p>
     </>
   );
 };
