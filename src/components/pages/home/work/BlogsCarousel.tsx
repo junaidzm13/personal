@@ -5,7 +5,6 @@ import { Blog, BlogCard } from '../../blog/BlogCard';
 import { colors } from '../../../../theme/colors';
 import { Icon } from '../../../common/icons/Icon';
 import { WIDTH_BOUNDARY_SMALLEST } from '../../../../constants/layout';
-import { Link } from 'react-router-dom';
 import { NoStyleLink } from '../../../common/NoStyleLink';
 
 export const BlogsCarousel: React.FC = () => {
