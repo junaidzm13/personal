@@ -1,6 +1,11 @@
 import React, { CSSProperties } from 'react';
 
-type IconName = 'home' | 'open-link' | 'typewriter';
+type IconName =
+  | 'home'
+  | 'open-link'
+  | 'typewriter'
+  | 'left-arrow'
+  | 'right-arrow';
 type SpecialIconName = 'blog' | 'github' | 'linkedin';
 
 export interface IconProps extends SvgProps {
@@ -15,6 +20,10 @@ export const Icon: React.FC<IconProps> = ({ name, ...svgProps }) => {
       return <OpenInNewTabIcon {...svgProps} />;
     case 'typewriter':
       return <TypewriterIcon {...svgProps} />;
+    case 'left-arrow':
+      return <LeftArrowIcon {...svgProps} />;
+    case 'right-arrow':
+      return <RightArrowIcon {...svgProps} />;
     case 'blog':
       return <BlogIcon {...svgProps} />;
     case 'github':
@@ -82,6 +91,34 @@ const OpenInNewTabIcon: React.FC<SvgProps> = props => {
       <path d="M55.4,32V53.58a1.81,1.81,0,0,1-1.82,1.82H10.42A1.81,1.81,0,0,1,8.6,53.58V10.42A1.81,1.81,0,0,1,10.42,8.6H32" />
       <polyline points="40.32 8.6 55.4 8.6 55.4 24.18" />
       <line x1="19.32" y1="45.72" x2="54.61" y2="8.91" />
+    </svg>
+  );
+};
+
+const LeftArrowIcon: React.FC<SvgProps> = props => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <polygon points="15.293 3.293 6.586 12 15.293 20.707 16.707 19.293 9.414 12 16.707 4.707 15.293 3.293" />
+    </svg>
+  );
+};
+
+const RightArrowIcon: React.FC<SvgProps> = props => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707" />
     </svg>
   );
 };
