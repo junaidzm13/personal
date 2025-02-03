@@ -50,11 +50,6 @@ const BlogItemWrapper = styled.div`
   border: solid 1px black;
   border-radius: 0.5em;
   overflow: hidden;
-
-  &:hover {
-    opacity: 0.75;
-    cursor: pointer;
-  }
 `;
 
 const BlogItemImage = styled.div`

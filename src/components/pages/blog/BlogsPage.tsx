@@ -8,6 +8,7 @@ import { FONT_SIZE_OVERRIDE } from '../../../constants/css';
 import { DataSourceReplacementPost } from './posts/DataSourceReplacementPost';
 import { ParameterizedSqlBuilder } from './posts/ParameterizedSqlBuilder';
 import { Blog, BlogCard } from './BlogCard';
+import { NoStyleLink } from '../../common/NoStyleLink';
 
 export const BlogsPage: React.FC = () => {
   return (
@@ -79,11 +80,6 @@ const CardsWrapper = styled.div`
     justify-content: start;
     gap: 1em;
   }
-`;
-
-const NoStyleLink = styled(Link)`
-  text-decoration: none;
-  height: fit-content;
 `;
 
 export const blogs: Array<Blog> = [
