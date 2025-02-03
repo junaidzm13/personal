@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Blog } from '../BlogsPage';
 import { fromPublic } from '../../../../utils/fromPublic';
 import { colors } from '../../../../theme/colors';
 import { Tags } from '../tag/Tags';
@@ -9,6 +8,7 @@ import {
   WIDTH_BOUNDARY_SMALLEST,
 } from '../../../../constants/layout';
 import { FONT_SIZE_OVERRIDE } from '../../../../constants/css';
+import { Blog } from '../BlogCard';
 
 type Props = Omit<Blog, 'component'> & { children: React.ReactNode };
 
