@@ -40,7 +40,7 @@ export const BlogsCarousel: React.FC = () => {
   return (
     <Wrapper>
       <Heading>
-        {'Selected documented work examples, learnings and best practices '}
+        {'Selected learnings, work samples and best practices '}
         <BlogsLink target="_blank" to={'/blogs'}>
           <NewTabIcon name="open-link" />
         </BlogsLink>
