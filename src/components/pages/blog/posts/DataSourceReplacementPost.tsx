@@ -5,7 +5,7 @@ import { InlineCode } from './common/InlineCode';
 import { Note } from './common/Note';
 import { CodeSnippet } from './common/CodeSippet';
 import { fromPublic } from '../../../../utils/fromPublic';
-import { Icon } from '../../../common/icons/Icon';
+import { NewTabLink } from '../../../common/NewTabLink';
 
 export const DataSourceReplacementPost: React.FC = () => {
   return (
@@ -96,14 +96,9 @@ export const DataSourceReplacementPost: React.FC = () => {
         * <InlineCode>sealed</InlineCode> guarantees that the interface is not
         extendable outside of the compilation unit. For our use-case, we used it
         as an "enum with superpowers".{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://stackoverflow.com/questions/50772328/what-are-sealed-classes-in-kotlin"
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          Read more <Icon name="open-link" />
-        </a>
+        <NewTabLink to="https://stackoverflow.com/questions/50772328/what-are-sealed-classes-in-kotlin">
+          Read more
+        </NewTabLink>
       </Note>
       <p>
         Factory pattern also made it easier to feature-flag the underlying data

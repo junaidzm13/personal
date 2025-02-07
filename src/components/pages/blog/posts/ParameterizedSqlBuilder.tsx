@@ -3,25 +3,35 @@ import { dracula } from 'react-code-blocks';
 import { InlineCode } from './common/InlineCode';
 import { Note } from './common/Note';
 import { CodeSnippet } from './common/CodeSippet';
-import { Icon } from '../../../common/icons/Icon';
+import { NewTabLink } from '../../../common/NewTabLink';
 
 export const ParameterizedSqlBuilder: React.FC = () => {
   return (
     <>
       <p>
-        While working as a full-stack developer for VUU, a UBS open-source
-        project, I identified an issue with how we were converting our dynamic
-        sort / filter queries from the UI into SQL for our underlying datasource
-        to understand. Raised the issue with the team, explained to them how the
-        way we are building the query could lead to SQL injection attacks and
-        provided suggestions on how we can use a parameterized builder to
-        mitigate this threat.
+        Vuu, a UBS open-source project, primarily used WebSockets to handle
+        communication between its server and the client. So any change in
+        dynamic filter or sort queries was also handled over WebSockets — the
+        query gets sent to the server, the server uses ANTLR to parse the
+        expression and then converts the parsed expression to SQL query for the
+        external datasource to understand. Initial implementation of this query
+        conversion step was a bit naive as it used plain string concatenation to
+        build SQL — implicitly assuming that ANTLR would detect and error on any
+        malicious queries from the UI.
       </p>
       <p>
-        In this post, I will be breifly outlining the pattern I used and how it
-        helped us achieve a clean and extendable design.
+        When working as a full-stack developer for VUU, I came across this and
+        immediately identified the risk of potential{' '}
+        <NewTabLink to={'https://en.wikipedia.org/wiki/SQL_injection'}>
+          SQL injection attacks
+        </NewTabLink>{' '}
+        posing a serious threat to our data security. In this post, I will
+        outline the clean and extendable solution that I proposed, designed and
+        developed.
       </p>
-      <p>Here is the main class of the parameterized SQL builder:</p>
+      <p>
+        Here is the main class of the parameterized SQL builder that I proposed:
+      </p>
       <CodeSnippet
         text={igniteSQLQueryClass}
         language={'scala'}
@@ -31,7 +41,7 @@ export const ParameterizedSqlBuilder: React.FC = () => {
       />
       <p>And here is one example of how it was used:</p>
       <CodeSnippet
-        text={usages}
+        text={usageExample1}
         language={'scala'}
         showLineNumbers={true}
         startingLineNumber={1}
@@ -39,45 +49,41 @@ export const ParameterizedSqlBuilder: React.FC = () => {
       />
       <Note style={{ marginTop: 0 }}>
         * To view the full merge request:{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/finos/vuu/pull/1319"
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          !1319 <Icon name="open-link" />
-        </a>
+        <NewTabLink to="https://github.com/finos/vuu/pull/1319">
+          !1319
+        </NewTabLink>
       </Note>
       <p>
-        Key design principles and philosophy that ensured thread-safety,
-        ease-of-use and extensibility:
+        The following key design principles ensured that the solution was
+        thread-safe, extensible and easy to use:
         <ul>
           <li>
-            Each <InlineCode>append</InlineCode> and{' '}
-            <InlineCode>prepend</InlineCode> method returns a copy, prioritizing
-            immutability and thread-safety.
+            <strong>Immutability and thread-safety:</strong> Each{' '}
+            <InlineCode>append</InlineCode> and <InlineCode>prepend</InlineCode>{' '}
+            method returns a copy, prioritizing immutability and thread-safety.
           </li>
           <li>
-            The initial implementation only catered for{' '}
-            <InlineCode>Ignite</InlineCode>, but can easily be extended to
-            support additional data sources by adding a new datasource specific{' '}
-            <InlineCode>build</InlineCode> method.
+            <strong>Extensibility:</strong> The initial implementation only
+            catered for <InlineCode>Ignite</InlineCode>, but can easily be
+            extended to support additional data sources by adding a new
+            datasource specific <InlineCode>build</InlineCode> method.
+            Similarly, separator enum can be extended to support other SQL
+            use-cases.
           </li>
           <li>
-            Various ways to build a query through static constructors and
-            various append/prepend builder methods.
-          </li>
-          <li>
-            <InlineCode>QuerySeparator</InlineCode> enum ensured strong type
-            while helping users to easily view the supported separators.
+            <strong>Ease of use:</strong> Various ways to build a query through
+            static constructors, various append/prepend builder methods and
+            query separators. Moreoever, <InlineCode>QuerySeparator</InlineCode>{' '}
+            enum not only ensures strong typing but also helps users to easily
+            view the supported separators.
           </li>
         </ul>
       </p>
       <p>
-        This is all that I wanted to talk about today! Hopefully, now whenever
-        you or your team are in a similar situation, you can utilize the same
-        design philosophy to implement a solution that is extendable, secure and
-        easy to use.
+        That's all I wanted to share today! I hope that in the future whenever
+        your team is in a similar situation, you can utilize the same design
+        philosophies to develop solutions that align with industry
+        best-practices.
       </p>
     </>
   );
@@ -116,7 +122,7 @@ const igniteSQLQueryClass = `...
    def buildFieldsQuery(): SqlFieldsQuery = new SqlFieldsQuery(sqlTemplate).setArgs(args.toArray: _*)
  }`;
 
-const usages = `def findItems(filterSql: IgniteSqlQuery, sortSql: IgniteSqlQuery, rowCount: Int, startIndex: Long): Iterator[Item] = {
+const usageExample1 = `def findItems(filterSql: IgniteSqlQuery, sortSql: IgniteSqlQuery, rowCount: Int, startIndex: Long): Iterator[Item] = {
      val whereClause = if (filterSql.isEmpty) filterSql else filterSql.prependSql("WHERE", QuerySeparator.SPACE)
      val orderByClause = if (sortSql.isEmpty) IgniteSqlQuery("ORDER BY id") 
                          else sortSql.prependSql("ORDER BY", QuerySeparator.SPACE)

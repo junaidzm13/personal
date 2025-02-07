@@ -6,6 +6,7 @@ import { colors } from '../../../../theme/colors';
 import { Icon } from '../../../common/icons/Icon';
 import { WIDTH_BOUNDARY_SMALLEST } from '../../../../constants/layout';
 import { NoStyleLink } from '../../../common/NoStyleLink';
+import { NewTabLink } from '../../../common/NewTabLink';
 
 export const BlogsCarousel: React.FC = () => {
   const [numCardsShown, setNumCardsShown] = React.useState(3);
@@ -41,9 +42,7 @@ export const BlogsCarousel: React.FC = () => {
     <Wrapper>
       <Heading>
         {'Selected learnings, work samples and best practices '}
-        <BlogsLink target="_blank" to={'/blogs'}>
-          <NewTabIcon name="open-link" />
-        </BlogsLink>
+        <BlogsLink to={'/blogs'} />
       </Heading>
       <CarouselWrapper>
         <ChevronButton
@@ -108,16 +107,7 @@ const Heading = styled.span`
   padding: 0 0.25em;
 `;
 
-const NewTabIcon = styled(Icon).attrs({ name: 'open-link' })``;
-
-const BlogsLink = styled(NoStyleLink)`
-  display: inline-flex;
-  align-items: center;
-
-  ${NewTabIcon} {
-    margin-left: 0.25em;
-  }
-
+const BlogsLink = styled(NewTabLink)`
   &:before {
     content: '(view all';
   }
