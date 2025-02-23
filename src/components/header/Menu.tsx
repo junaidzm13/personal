@@ -27,7 +27,7 @@ export const Menu: React.FC<Props> = ({ anchorId, yOffset }) => {
       clickable
       noArrow
       place="bottom-start"
-      positionStrategy="absolute"
+      positionStrategy="fixed"
       position={{ x: -5, y: yPosition }}
       offset={0}
       disableStyleInjection

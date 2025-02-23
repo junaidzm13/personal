@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import { colors } from '../../theme/colors';
 import { fromPublic } from '../../utils/fromPublic';
 import { Menu } from './Menu';
+import { useScrollBar } from './useScrollBar';
 
 export const Header: React.FC = () => {
-  const viewRef = React.createRef<HTMLElement>();
+  const viewRef = React.createRef<HTMLDivElement>();
   const [height, setHeight] = useState(0);
+
+  const { scrollPercentage } = useScrollBar();
 
   useLayoutEffect(() => {
     if (!viewRef.current) return;
@@ -18,12 +21,15 @@ export const Header: React.FC = () => {
   }, [viewRef]);
 
   return (
-    <StyledHeader ref={viewRef}>
-      <BitmojiImageWrapper id="my-anchor">
-        <img src={fromPublic('bitmoji.jpeg')} alt="Junaid Malik's Bitmoji" />
-      </BitmojiImageWrapper>
-      <Menu anchorId="my-anchor" yOffset={height} />
-    </StyledHeader>
+    <Wrapper>
+      <StyledHeader ref={viewRef}>
+        <BitmojiImageWrapper id="my-anchor">
+          <img src={fromPublic('bitmoji.jpeg')} alt="Junaid Malik's Bitmoji" />
+        </BitmojiImageWrapper>
+        <Menu anchorId="my-anchor" yOffset={height} />
+      </StyledHeader>
+      <ScrollProgressBar widthPercent={scrollPercentage} />
+    </Wrapper>
   );
 };
 
@@ -31,22 +37,37 @@ const BitmojiImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3em;
-  width: 3em;
+  height: 2.75em;
+  width: 2.75em;
   border-radius: 5em;
   overflow: hidden;
   margin: 0.25em;
   margin-left: 0.5em;
 
   > img {
-    height: 3em;
+    height: 2.75em;
   }
 `;
 
-const StyledHeader = styled.header.attrs(({ ref }) => ({ ref }))`
+const StyledHeader = styled.div.attrs(({ ref }) => ({ ref }))`
   display: flex;
   flex-direction: row;
   background-color: ${colors.SURFACE};
   width: 100%;
   overflow: hidden;
+`;
+
+const Wrapper = styled.header`
+  display: flex;
+  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+`;
+
+const ScrollProgressBar = styled.div<{ widthPercent: number }>`
+  height: 0.1em;
+  width: ${({ widthPercent }) => widthPercent}%;
+  background-color: ${colors.PRIMARY};
 `;
