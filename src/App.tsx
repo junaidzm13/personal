@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import React, { useLayoutEffect } from 'react';
+import { Routes, Route, HashRouter, useLocation } from 'react-router-dom';
 import { Header } from './components/header/Header';
 import { AppContainer } from './AppContainer';
 import { Footer } from './components/footer/Footer';
@@ -24,6 +24,7 @@ export default function App() {
 }
 
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  useScrollToTopOnPageChange();
   return (
     <AppContainer>
       <Header />
@@ -38,3 +39,8 @@ const routesProps: Array<{ path: string; element: JSX.Element }> = [
   { path: '/blogs', element: <BlogsPage /> },
   { path: '/blogs/:id', element: <BlogPost /> },
 ];
+
+function useScrollToTopOnPageChange() {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => document.documentElement.scrollTo(0, 0), [pathname]);
+}
