@@ -72,7 +72,7 @@ const Wrapper = styled.div`
   gap: 2em;
   align-items: center;
   background-color: ${colors.BACKGROUND};
-  padding: 1em 0.25em 3em;
+  padding: 2em 0.25em 3em;
   border-bottom: 0.125em solid ${colors.SURFACE};
   border-top: 0.125em solid ${colors.SURFACE};
 `;

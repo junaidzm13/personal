@@ -23,14 +23,14 @@ export const TechnologiesCarouselContainer: React.FC = () => (
 
 const Wrapper = styled.div`
   background-color: ${colors.BACKGROUND};
-  padding: 1em 0;
+  padding: 1.5em 0;
 
   > .infinite-carousel-heading {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-bottom: 1em;
+    margin-bottom: 2em;
 
     > span {
       font-size: 1.125em;

@@ -29,8 +29,8 @@ const IntroductionWrapper = styled.div`
 
   @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     flex-direction: column-reverse;
-    padding: 1em;
-    gap: 1em;
+    padding: 2em 1em 2em;
+    gap: 2em;
   }
 `;
 
