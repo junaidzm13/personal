@@ -53,13 +53,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1em;
-  box-shadow: 0.1px 0.1px 3px black;
+  box-shadow: 0.1px 0.1px 3px ${colors.SURFACE};
   min-width: 10em;
 
-  background-color: ${colors.GRAY_3};
+  background-color: ${colors.SURFACE};
 
   & > * {
-    border-top: solid 1px ${colors.GRAY_1};
+    border-top: solid 1px ${colors.SURFACE_6DP};
   }
 `;
 
@@ -88,15 +88,15 @@ const StyledLink = styled(Link)<{ selected: boolean }>`
   align-items: center;
   justify-content: start;
   text-decoration: none;
-  color: black;
+  color: ${colors.ON_SURFACE};
   padding: 0.6125em 0;
   padding-left: 1.25em;
   gap: 0.5em;
-  ${({ selected }) => selected && `background-color: ${colors.GRAY_1}`};
+  ${({ selected }) => selected && `background-color: ${colors.SURFACE_6DP}`};
 
   &:hover {
     opacity: 0.75;
-    background-color: ${colors.GRAY_1};
+    background-color: ${colors.SURFACE_6DP};
     cursor: pointer;
   }
 
@@ -105,7 +105,9 @@ const StyledLink = styled(Link)<{ selected: boolean }>`
   }
 `;
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(Icon).attrs({
+  color: colors.PRIMARY,
+})`
   width: 1.0675em;
   height: auto;
 `;

@@ -1,13 +1,19 @@
-const GRAY_1 = '#F2F2F2' as const;
-const GRAY_2 = '#E6E6E6' as const;
-const GRAY_3 = '#DCDCDC' as const;
 const GRAY_4 = '#999999' as const;
-const LEAD = '#3f3f4e' as const;
+const SURFACE = '#1e1e1e' as const;
+const SURFACE_6DP = '#2c2c2c' as const;
+const SURFACE_24DP = '#383838' as const;
+const PRIMARY = '#b2b2b2' as const;
+const BACKGROUND = '#121212' as const;
+const WHITE = '#FFFFFF' as const;
+const BLACK = '#000000' as const;
 
 export const colors = {
-  GRAY_1,
-  GRAY_2,
   GRAY_4,
-  GRAY_3,
-  LEAD,
+  PRIMARY,
+  SURFACE,
+  SURFACE_6DP,
+  SURFACE_24DP,
+  BACKGROUND,
+  ON_SURFACE: WHITE,
+  ON_PRIMARY: BLACK,
 } as const;

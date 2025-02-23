@@ -29,7 +29,7 @@ export const PostWrapper: React.FC<Props> = props => {
         <CoverImg src={fromPublic(`blog-covers/${cover}`)} alt={'Blog cover'} />
       </HeadingWrapper>
       <ContentWrapper>{children}</ContentWrapper>
-      <StyledTags tags={tags} />
+      <StyledTags tags={tags.slice().sort()} />
     </Wrapper>
   );
 };
@@ -39,13 +39,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   max-width: 50em;
   width: 95%;
+  background-color: ${colors.BACKGROUND};
+  color: ${colors.ON_SURFACE};
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${FONT_SIZE_OVERRIDE}
-  border-bottom: solid 1px ${colors.GRAY_3};
+  border-bottom: solid 1px ${colors.SURFACE};
   padding: 0.5em 0;
   margin-bottom: 0.25em;
 
@@ -64,7 +66,7 @@ const HeadingWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 1px ${colors.GRAY_3};
+  border-bottom: solid 1px ${colors.SURFACE};
 
   @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
     flex-direction: column-reverse;
@@ -81,7 +83,7 @@ const DateAndReadingTimeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: gray;
+  color: ${colors.GRAY_4};
 `;
 
 const Title = styled.h1`

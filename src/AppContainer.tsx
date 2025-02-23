@@ -6,7 +6,7 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: ${colors.LEAD};
+  background-color: ${colors.BACKGROUND};
 
   @media (max-width: ${WIDTH_BOUNDARY_SMALL}) {
     font-size: 0.875em;

@@ -71,9 +71,10 @@ const Wrapper = styled.div`
   justify-content: center;
   gap: 2em;
   align-items: center;
-  background-color: white;
+  background-color: ${colors.BACKGROUND};
   padding: 1em 0.25em 3em;
-  border-bottom: 0.0675em solid ${colors.LEAD};
+  border-bottom: 0.125em solid ${colors.SURFACE};
+  border-top: 0.125em solid ${colors.SURFACE};
 `;
 
 const CarouselWrapper = styled.div`
@@ -101,13 +102,13 @@ const ClickableBlogCard = styled((blog: Blog) => {
 
 const Heading = styled.span`
   display: inline-block;
-  color: ${colors.LEAD};
+  color: ${colors.ON_SURFACE};
   font-size: 1.125em;
   text-align: center;
   padding: 0 0.25em;
 `;
 
-const BlogsLink = styled(NewTabLink)`
+const BlogsLink = styled(NewTabLink).attrs({ iconColor: colors.ON_SURFACE })`
   &:before {
     content: '(view all';
   }
@@ -153,6 +154,7 @@ const ChevronButton = styled(
     return (
       <button className={className} disabled={disabled} onClick={onClick}>
         <Icon
+          color={colors.ON_SURFACE}
           name={`${direction}-arrow`}
           style={{ width: '2.5em', height: '2.5em' }}
         />
@@ -172,6 +174,8 @@ const ChevronButton = styled(
   @media (max-width: ${WIDTH_BOUNDARY_SMALLEST}) {
     padding: 1em;
   }
+
+  -webkit-tap-highlight-color: ${colors.PRIMARY}4D;
 
   &:disabled {
     opacity: 0.2;

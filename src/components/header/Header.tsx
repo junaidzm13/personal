@@ -46,7 +46,7 @@ const BitmojiImageWrapper = styled.div`
 const StyledHeader = styled.header.attrs(({ ref }) => ({ ref }))`
   display: flex;
   flex-direction: row;
-  background-color: ${colors.GRAY_3};
+  background-color: ${colors.SURFACE};
   width: 100%;
   overflow: hidden;
 `;

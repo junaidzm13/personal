@@ -5,7 +5,7 @@ import { SpanWithTypingAnimation } from './SpanWithTypingAnimation';
 export const NameAndSummary: React.FC = () => {
   return (
     <Wrapper>
-      <span className="name">Junaid Malik</span>
+      <h1 className="name">Junaid Malik</h1>
       <SpanWithTypingAnimation className={'summary'} texts={summaryTexts} />
     </Wrapper>
   );
@@ -27,6 +27,7 @@ const Wrapper = styled.div`
     font-size: 3em;
     font-weight: bold;
     letter-spacing: 0.5px;
+    margin: 0;
   }
 `;
 

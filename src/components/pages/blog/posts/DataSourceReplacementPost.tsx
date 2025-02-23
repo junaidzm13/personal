@@ -6,6 +6,7 @@ import { Note } from './common/Note';
 import { CodeSnippet } from './common/CodeSippet';
 import { fromPublic } from '../../../../utils/fromPublic';
 import { NewTabLink } from '../../../common/NewTabLink';
+import { colors } from '../../../../theme/colors';
 
 export const DataSourceReplacementPost: React.FC = () => {
   return (
@@ -96,7 +97,10 @@ export const DataSourceReplacementPost: React.FC = () => {
         * <InlineCode>sealed</InlineCode> guarantees that the interface is not
         extendable outside of the compilation unit. For our use-case, we used it
         as an "enum with superpowers".{' '}
-        <NewTabLink to="https://stackoverflow.com/questions/50772328/what-are-sealed-classes-in-kotlin">
+        <NewTabLink
+          iconColor={colors.GRAY_4}
+          to="https://stackoverflow.com/questions/50772328/what-are-sealed-classes-in-kotlin"
+        >
           Read more
         </NewTabLink>
       </Note>

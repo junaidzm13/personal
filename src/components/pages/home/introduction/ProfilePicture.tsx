@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 
 const ContentFront = styled(({ className }: { className?: string }) => (
   <div className={className}>
-    <img src={fromPublic('bitmoji2.jpeg')} alt="Junaid's bitmoji-2" />
+    <img src={fromPublic('bitmoji2.jpeg')} alt="Junaid Malik's Bitmoji" />
   </div>
 ))`
   display: flex;
@@ -34,8 +34,7 @@ const ContentFront = styled(({ className }: { className?: string }) => (
   border-radius: 30em;
 
   > img {
-    height: 40em;
-    margin-top: 10em;
+    height: 100%;
   }
 `;
 
@@ -44,7 +43,7 @@ const ContentBack = styled(({ className }: { className?: string }) => (
     <div className="content-back-inner">
       <span className="content-back-greeting">Hola, Junaid here &#128075;</span>
       <span className="content-back-tagline">
-        Your friendly neighbourhood <b>Software Engineer</b>! :D
+        Your friendly neighbourhood <b>Software Engineer</b>! 🕸️
       </span>
     </div>
   </div>
@@ -53,14 +52,14 @@ const ContentBack = styled(({ className }: { className?: string }) => (
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.GRAY_3};
+  background-color: ${colors.SURFACE_6DP};
   border-radius: 30em;
 
   & .content-back-inner {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    color: ${colors.LEAD};
+    color: ${colors.ON_SURFACE};
     padding: 1em;
   }
 

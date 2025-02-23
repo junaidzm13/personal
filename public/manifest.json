@@ -1,9 +1,9 @@
 {
-  "short_name": "Junaid Malik's portfolio",
+  "short_name": "Junaid Malik",
   "name": "Junaid Malik's portfolio website",
-  "icons": [],
+  "icons": ["bitmoji.jpeg"],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#121212",
+  "background_color": "#121212"
 }

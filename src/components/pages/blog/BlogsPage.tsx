@@ -33,7 +33,8 @@ export const BlogsPage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: ${colors.BACKGROUND};
+  color: ${colors.ON_SURFACE};
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -47,10 +48,11 @@ const InnerWrapper = styled.div`
   max-width: 57em;
 `;
 
-const PageHeading = styled.span`
+const PageHeading = styled.h1`
   font-size: 3em;
   font-weight: bold;
   letter-spacing: 0.5px;
+  margin: 0;
 `;
 
 const PageDescription = styled.span`
@@ -64,7 +66,7 @@ const PageHeader = styled.div`
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
 
-  border-bottom: 1px solid ${colors.GRAY_3};
+  border-bottom: 1px solid ${colors.SURFACE};
 `;
 
 const CardsWrapper = styled.div`
@@ -95,10 +97,11 @@ export const blogs: Array<Blog> = [
     id: '2',
     title: 'Replacing a critical datasource with minimal change in downstream',
     tags: [
-      BlogTag.CleanCode,
+      BlogTag.Architecture,
       BlogTag.DesignPatterns,
+      BlogTag.Spring,
       BlogTag.Kotlin,
-      BlogTag.SpringBoot,
+      BlogTag.CleanCode,
     ],
     datePublished: '22 Oct 2024',
     readingTimeMins: 3,

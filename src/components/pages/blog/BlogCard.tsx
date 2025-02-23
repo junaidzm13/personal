@@ -24,7 +24,7 @@ export const BlogCard: React.FC<Props> = ({ className, ...blog }) => {
   return (
     <BlogItemWrapper className={className}>
       <BlogItemImage>
-        <img src={fromPublic(`blog-covers/${blog.cover}`)} alt="cover" />
+        <img src={fromPublic(`blog-covers/${blog.cover}`)} alt="Blog cover" />
       </BlogItemImage>
       <BlogItemBody>
         <BlogItemHeader>
@@ -34,7 +34,7 @@ export const BlogCard: React.FC<Props> = ({ className, ...blog }) => {
             <span>{blog.readingTimeMins} min read</span>
           </DateAndReadingTimeWrapper>
         </BlogItemHeader>
-        <Tags tags={blog.tags.slice(0, 3)} />
+        <Tags tags={blog.tags.slice(0, 3).sort()} />
       </BlogItemBody>
     </BlogItemWrapper>
   );
@@ -47,9 +47,11 @@ const BlogItemWrapper = styled.div`
   height: fit-content;
   max-width: 17.5em;
   width: 100%;
-  border: solid 1px black;
+  border: solid 1px ${colors.SURFACE_6DP};
   border-radius: 0.5em;
   overflow: hidden;
+  background-color: ${colors.PRIMARY};
+  box-shadow: 0 0 2px 2px rgb(255, 255, 255, 0.1); // @todo
 `;
 
 const BlogItemImage = styled.div`
@@ -68,8 +70,7 @@ const BlogItemBody = styled.div`
   flex-direction: column;
   gap: 2em;
   padding: 0.5em;
-  border-top: solid 1px ${colors.LEAD};
-  background-color: ${colors.GRAY_3};
+  background-color: ${colors.SURFACE_6DP};
 `;
 
 const BlogItemHeader = styled.div`
@@ -80,7 +81,7 @@ const BlogItemHeader = styled.div`
 `;
 
 const BlogItemTitle = styled.span`
-  color: ${colors.LEAD};
+  color: ${colors.ON_SURFACE};
 `;
 
 const DateAndReadingTimeWrapper = styled.div`
@@ -88,6 +89,6 @@ const DateAndReadingTimeWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 0.875em;
-  color: gray;
+  color: ${colors.GRAY_4};
   width: 100%;
 `;

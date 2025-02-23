@@ -33,15 +33,15 @@ type Color = {
 
 const colorByTagType: Record<BlogTagType, Color> = {
   [BlogTagType.Fundamental]: {
-    lightShade: '#D3F8D3',
-    darkShade: '#116F11',
+    lightShade: '#E8F5E9',
+    darkShade: '#1B5E20',
   },
   [BlogTagType.Technology]: {
-    lightShade: '#C4E3ED',
-    darkShade: '#2A7189',
+    lightShade: '#E3F2FD',
+    darkShade: '#0D47A1',
   },
   [BlogTagType.Language]: {
-    lightShade: '#FFCCCC',
-    darkShade: '#FF3355',
+    lightShade: '#FFEBEE',
+    darkShade: '#B71C1C',
   },
 };

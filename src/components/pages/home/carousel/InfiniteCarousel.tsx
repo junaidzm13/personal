@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { fromPublic } from '../../../../utils/fromPublic';
+import { colors } from '../../../../theme/colors';
 
 export type CarouselImage = {
   src: string;
@@ -53,7 +54,7 @@ const Wrapper = styled.div<Pick<Props, 'imgHeightEm'>>`
   align-items: center;
   overflow: hidden;
   padding: 0;
-  background-color: white;
+  background-color: ${colors.BACKGROUND};
   white-space: nowrap;
   position: relative;
 
@@ -69,12 +70,20 @@ const Wrapper = styled.div<Pick<Props, 'imgHeightEm'>>`
 
   &:before {
     left: 0;
-    background: linear-gradient(to left, rgb(255, 255, 255, 0), white);
+    background: linear-gradient(
+      to left,
+      ${colors.SURFACE}00,
+      ${colors.BACKGROUND}
+    );
   }
 
   &:after {
     right: 0;
-    background: linear-gradient(to right, rgb(255, 255, 255, 0), white);
+    background: linear-gradient(
+      to right,
+      ${colors.SURFACE}00,
+      ${colors.BACKGROUND}
+    );
   }
 
   &:hover .logos-slide {

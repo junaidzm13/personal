@@ -4,6 +4,7 @@ import { InlineCode } from './common/InlineCode';
 import { Note } from './common/Note';
 import { CodeSnippet } from './common/CodeSippet';
 import { NewTabLink } from '../../../common/NewTabLink';
+import { colors } from '../../../../theme/colors';
 
 export const ParameterizedSqlBuilder: React.FC = () => {
   return (
@@ -49,7 +50,10 @@ export const ParameterizedSqlBuilder: React.FC = () => {
       />
       <Note style={{ marginTop: 0 }}>
         * To view the full merge request:{' '}
-        <NewTabLink to="https://github.com/finos/vuu/pull/1319">
+        <NewTabLink
+          iconColor={colors.GRAY_4}
+          to="https://github.com/finos/vuu/pull/1319"
+        >
           !1319
         </NewTabLink>
       </Note>

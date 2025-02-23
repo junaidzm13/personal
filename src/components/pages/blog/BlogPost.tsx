@@ -3,6 +3,7 @@ import { blogs } from './BlogsPage';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { PostWrapper } from './posts/PostWrapper';
+import { colors } from '../../../theme/colors';
 
 export const BlogPost: React.FC = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ export const BlogPost: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: ${colors.BACKGROUND};
   display: flex;
   flex-direction: column;
   align-items: center;

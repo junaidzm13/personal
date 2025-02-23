@@ -22,7 +22,7 @@ export const TechnologiesCarouselContainer: React.FC = () => (
 );
 
 const Wrapper = styled.div`
-  background-color: white;
+  background-color: ${colors.BACKGROUND};
   padding: 1em 0;
 
   > .infinite-carousel-heading {
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 
     > span {
       font-size: 1.125em;
-      color: ${colors.LEAD};
+      color: ${colors.ON_SURFACE};
       text-align: center;
       padding: 0 0.25em 0;
     }
@@ -45,7 +45,7 @@ const ThreeStars: React.FC<{ filled: number; className?: string }> = ({
   filled,
   className,
 }) => {
-  const starColors = { filled: '#ffd700', unfilled: 'lightgray' };
+  const starColors = { filled: '#ffd700', unfilled: colors.SURFACE_6DP };
 
   const stars = Array(3)
     .fill(null)

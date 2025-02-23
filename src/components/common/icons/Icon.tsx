@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import { colors } from '../../../theme/colors';
 
 type IconName =
   | 'home'
@@ -38,37 +39,37 @@ export const Icon: React.FC<IconProps> = ({ name, ...svgProps }) => {
 interface SvgProps {
   className?: string;
   style?: CSSProperties;
+  color?: string;
 }
 
-const HomeIcon: React.FC<SvgProps> = props => {
+const HomeIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       width="1em"
       height="1em"
       viewBox="0 0 16 16"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      fill={color}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z"
-        fill="#000000"
       />
     </svg>
   );
 };
 
-const TypewriterIcon: React.FC<SvgProps> = props => {
+const TypewriterIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
-      fill="#000000"
       width="1em"
       height="1em"
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      fill={color}
+      {...rest}
     >
       <title>typewriter</title>
       <path d="M20 3.749h-8c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h8c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM20 6.749h-8c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h8c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM20 9.749h-8c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h8c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM30.186 23.605l-1.596-4.788c0.998-0.564 1.66-1.617 1.66-2.826 0-1.341-0.816-2.492-1.979-2.982l-0.021-0.008v-3.002c-0.005-1.702-1.32-3.095-2.989-3.224l-0.011-0.001v-3.027c-0.002-1.794-1.456-3.248-3.25-3.25h-12.001c-1.794 0.002-3.248 1.456-3.25 3.25v3.028c-1.68 0.131-2.994 1.523-2.999 3.224v3.003c-1.184 0.498-2 1.649-2 2.99 0 1.209 0.664 2.264 1.647 2.819l0.016 0.008-1.646 4.976-1 6c-0.011 0.062-0.017 0.133-0.017 0.206 0 0.69 0.559 1.249 1.249 1.249 0 0 0.001 0 0.001 0h28c0 0 0 0 0 0 0.69 0 1.249-0.559 1.249-1.249 0-0.073-0.006-0.144-0.018-0.213l0.001 0.007zM4.25 16c0.001-0.414 0.336-0.749 0.75-0.75h22c0.414 0 0.75 0.336 0.75 0.75s-0.336 0.75-0.75 0.75v0h-22c-0.414-0.001-0.749-0.336-0.75-0.75v-0zM25.75 9.999v2.751h-0.5v-3.45c0.292 0.104 0.498 0.377 0.5 0.699v0zM9.249 3.747c0.001-0.414 0.336-0.749 0.75-0.75h12.001c0.414 0 0.75 0.336 0.75 0.75v9.003h-13.501zM6.25 9.999c0.002-0.322 0.207-0.595 0.494-0.697l0.005-0.002v3.45h-0.499zM3.472 28.75l0.714-4.355 1.716-5.145h20.2l1.666 4.955 0.758 4.545zM14.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM6.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM10.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM26.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM18.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM22.5 25.75h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM16.326 22.752h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM7.326 25.252h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0zM12.326 22.752h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM20.326 22.752h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0zM22.076 24.002c0.001 0.69 0.56 1.249 1.25 1.25h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0.001-1.249 0.56-1.25 1.25v0zM17.5 22.25h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0zM9.5 22.25h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0zM13.5 22.25h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0zM21.5 22.25h1c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-1c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0z"></path>
@@ -76,7 +77,7 @@ const TypewriterIcon: React.FC<SvgProps> = props => {
   );
 };
 
-const OpenInNewTabIcon: React.FC<SvgProps> = props => {
+const OpenInNewTabIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       width="1em"
@@ -84,9 +85,9 @@ const OpenInNewTabIcon: React.FC<SvgProps> = props => {
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
       strokeWidth="3"
-      stroke="#000000"
+      stroke={color}
       fill="none"
-      {...props}
+      {...rest}
     >
       <path d="M55.4,32V53.58a1.81,1.81,0,0,1-1.82,1.82H10.42A1.81,1.81,0,0,1,8.6,53.58V10.42A1.81,1.81,0,0,1,10.42,8.6H32" />
       <polyline points="40.32 8.6 55.4 8.6 55.4 24.18" />
@@ -95,64 +96,68 @@ const OpenInNewTabIcon: React.FC<SvgProps> = props => {
   );
 };
 
-const LeftArrowIcon: React.FC<SvgProps> = props => {
+const LeftArrowIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      {...props}
+      fill={color ?? colors.ON_SURFACE}
+      {...rest}
     >
       <polygon points="15.293 3.293 6.586 12 15.293 20.707 16.707 19.293 9.414 12 16.707 4.707 15.293 3.293" />
     </svg>
   );
 };
 
-const RightArrowIcon: React.FC<SvgProps> = props => {
+const RightArrowIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      {...props}
+      fill={color ?? colors.ON_SURFACE}
+      {...rest}
     >
       <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707" />
     </svg>
   );
 };
 
-// these icons are special in the sense they won't be used much.
-const GitHubIcon: React.FC<SvgProps> = props => {
+// these icons are special in the sense that they are only specific to the home page.
+const GitHubIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
       viewBox="0 0 24 24"
-      {...props}
+      fill={color ?? colors.PRIMARY}
+      {...rest}
     >
       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
     </svg>
   );
 };
 
-const LinkedInIcon: React.FC<SvgProps> = props => {
+const LinkedInIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
       viewBox="0 0 24 24"
-      {...props}
+      fill={color ?? colors.PRIMARY}
+      {...rest}
     >
       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
     </svg>
   );
 };
 
-const BlogIcon: React.FC<SvgProps> = props => {
+const BlogIcon: React.FC<SvgProps> = ({ color, ...rest }) => {
   return (
     <svg
       id="Layer_1"
@@ -161,7 +166,8 @@ const BlogIcon: React.FC<SvgProps> = props => {
       height={'1em'}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 122.88 95.51"
-      {...props}
+      fill={color ?? colors.PRIMARY}
+      {...rest}
     >
       <defs>
         <style>{'.cls-1{fill-rule:evenodd;}'}</style>

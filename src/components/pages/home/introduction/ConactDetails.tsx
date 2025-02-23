@@ -79,7 +79,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(Icon).attrs({ color: colors.PRIMARY })`
   width: 2.5em;
   height: 2.5em;
 `;
@@ -106,7 +106,7 @@ const NewBannerWrapper = styled.div<{ color: string }>`
   top: 0;
   right: 0;
   padding: 0.0675em 0.25em;
-  background-color: ${colors.GRAY_3};
+  background-color: ${colors.ON_PRIMARY};
   border-radius: 0.25em;
   font-size: 0.6125em;
   ${({ color }) => `color: ${color}; border: solid 1px ${color};`};
