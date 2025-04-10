@@ -8,6 +8,7 @@ import { DataSourceReplacementPost } from './posts/DataSourceReplacementPost';
 import { ParameterizedSqlBuilder } from './posts/ParameterizedSqlBuilder';
 import { Blog, BlogCard } from './BlogCard';
 import { NoStyleLink } from '../../common/NoStyleLink';
+import { RecoilPost } from './posts/RecoilPost';
 
 export const BlogsPage: React.FC = () => {
   return (
@@ -122,5 +123,14 @@ export const blogs: Array<Blog> = [
     readingTimeMins: 3,
     cover: 'parameterized-sql.png',
     component: () => <ParameterizedSqlBuilder />,
+  },
+  {
+    id: '4',
+    title: 'How Recoil helped us achieve 3x performance boost',
+    tags: [BlogTag.React, BlogTag.CleanCode, BlogTag.TypeScript],
+    datePublished: '7 Mar 2025',
+    readingTimeMins: 4,
+    cover: 'recoil.png',
+    component: () => <RecoilPost />,
   },
 ];
